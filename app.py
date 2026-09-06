@@ -12,7 +12,7 @@ from components.contact_modal import show_contact_modal
 
 # ── 1. PAGE CONFIGURATION & DARK QUANT THEME ──────────────────────────────────
 st.set_page_config(
-    page_title="Quant Diagnostic & Trading Dashboard",
+    page_title="Quantitative Trading & ML Analytics Dashboard",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -62,8 +62,7 @@ col_header, col_contact = st.columns([0.78, 0.22])
 
 with col_header:
     st.markdown(
-        "<h3 style='margin-bottom: 0px;'>🛡️ Quantitative Trading & Diagnostic"
-        " Suite</h3>",
+        "<h3 style='margin-bottom: 0px;'>🛡️ Quantitative Trading & ML Analytics Dashboard</h3>",
         unsafe_allow_html=True,
     )
 
