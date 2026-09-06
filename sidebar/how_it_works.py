@@ -229,8 +229,6 @@ def show_how_it_works_dialog():
             )
 
         st.markdown("---")
-        if st.button("Close Walkthrough", use_container_width=True):
-            st.rerun()
 
     _render_dialog()
 

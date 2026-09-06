@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 @st.dialog("📩 Contact & Support")
 def show_contact_modal():
     tab_contact, tab_donate = st.tabs(["💬 Direct Contact", "☕ Donate & Support"])
@@ -62,11 +61,5 @@ def show_contact_modal():
         st.markdown(
             "👉 **[Register on KCEX (0% Fees)](https://www.kcex.com/register?inviteCode=R2ZQNQ)**"
         )
-        st.markdown(
-                    "Or Use Below Code:"
-                )
+        st.markdown("Or Use Below Code:")
         st.code("R2ZQNQ", language="text")
-
-    st.markdown("---")
-    if st.button("Close Window", use_container_width=True):
-        st.rerun()
