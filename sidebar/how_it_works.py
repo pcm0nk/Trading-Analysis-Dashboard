@@ -37,36 +37,33 @@ def show_how_it_works_dialog():
                 " schema below:"
             )
 
-            # Restored Schema Table with dedicated Open/Close Direction rows
+            # Updated Schema Table with exact mandatory headers and accepted variants
             schema_data = {
                 "Column Name": [
-                    "Open Time", 
-                    "Close Time", 
-                    "Symbol / Pair", 
-                    "Open Direction", 
-                    "Close Direction", 
-                    "Price", 
-                    "Qty / Size", 
-                    "Fee"
+                    "Filled time(UTC)", 
+                    "Futures", 
+                    "Direction", 
+                    "Filled Quantity", 
+                    "Filled Price", 
+                    "Realized PNL", 
+                    "fees"
                 ],
                 "Accepted Variants": [
-                    "Open Time, open_time, Time, datetime",
-                    "Close Time, close_time, exit_time",
-                    "Symbol, Pair, symbol, pair, Instrument",
-                    "OPEN_LONG, OPEN_SHORT, BUY, LONG, Open Long, Open Short",
-                    "CLOSE_LONG, CLOSE_SHORT, CLOSE LONG, CLOSE SHORT, SELL, SHORT, Close Long, Close Short, BURST_LIQUIDATE_LONG, BURST_LIQUIDATE_SHORT, OFFSET_LIQUIDATE_SHORT, FORCE_LIQUIDATE_SHORT, FORCE_LIQUIDATE_LONG, OFFSET_LIQUIDATE_LONG",
-                    "Price, price, Executed Price",
-                    "Qty, Size, Quantity, Amount, Volume",
-                    "Fee, Fees, Commission, fee_amount"
+                    "Filled time(UTC)",
+                    "Futures",
+                    "OPEN_LONG, OPEN_SHORT, OPEN LONG, OPEN SHORT, BUY, LONG, Open Long, Open Short, CLOSE_LONG, CLOSE_SHORT, CLOSE LONG, CLOSE SHORT, BURST_LIQUIDATE_LONG, BURST_LIQUIDATE_SHORT, OFFSET_LIQUIDATE_SHORT, FORCE_LIQUIDATE_SHORT, FORCE_LIQUIDATE_LONG, OFFSET_LIQUIDATE_LONG, SELL, SHORT, Close Long, Close Short",
+                    "Filled Quantity",
+                    "Filled Price",
+                    "Realized PNL",
+                    "fees"
                 ],
                 "Example": [
                     "2026-04-10 14:30:00",
-                    "2026-04-10 15:45:00",
                     "BTCUSDT",
                     "OPEN_LONG",
-                    "CLOSE_LONG",
-                    "65400.50",
                     "0.15",
+                    "65400.50",
+                    "150.00",
                     "0.0025"
                 ]
             }
@@ -109,7 +106,7 @@ def show_how_it_works_dialog():
             st.markdown("### 🛡️ Section 1: Validation Analysis Phase")
             st.markdown(
                 "Multi-stage data integrity validation before performance analytics:\n\n"
-                "* **Schema Verification:** Standardizes columns (`Open Time`, `Close Time`, `Pair`, `Directions`, `Price`, `Qty`, `Fees`).\n"
+                "* **Schema Verification:** Standardizes columns (`Filled time(UTC)`, `Futures`, `Direction`, `Filled Quantity`, `Filled Price`, `Realized PNL`, `fees`).\n"
                 "* **FIFO Engine:** Matches entries and exits chronologically.\n"
                 "* **Orphan Detection:** Isolates **Orphan Closes** (missing entries) and **Orphan Opens** (unclosed inventory)."
             )
