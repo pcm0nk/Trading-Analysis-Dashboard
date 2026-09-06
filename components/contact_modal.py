@@ -27,7 +27,7 @@ def show_contact_modal():
         # GitHub
         st.markdown(
             "🛠️ **GitHub Issues**\n\n"
-            "[Open an Issue](https://github.com/pcm0nk/TradingDashboard/issues)"
+            "[Open an Issue](https://github.com/pcm0nk/Trading-Analytics-Dashboard/issues)"
         )
  
     # ── TAB 2: DONATION & SUPPORT ─────────────────────────────────────────────
