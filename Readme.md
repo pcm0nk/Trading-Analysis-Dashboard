@@ -1,43 +1,39 @@
-# Algorithmic Trading Analytics Dashboard (FIFO Engine)
+# Algorithmic Trading Analytics Dashboard (FIFO Engine & Scikit-Learn ML Suite)
 
-An end-to-end, high-performance trading analytics platform built with Streamlit and Python. This system ingests raw trade fill logs from crypto and futures exchanges, executes precise **First-In-First-Out (FIFO)** order matching to reconstruct individual trade lifecycles, and provides deep institutional-grade performance analytics, interactive equity charts, and drawdown modeling.
-
-
+An end-to-end, high-performance trading analytics platform built with Streamlit and Python. This system ingests raw trade fill logs from crypto and futures exchanges, executes precise **First-In-First-Out (FIFO)** order matching to reconstruct individual trade lifecycles, and provides institutional-grade performance analytics, interactive equity charts, drawdown modeling, and machine-learning-driven behavioral diagnostics.
 
 ---
 
 ## Core Features & Technical Capabilities
 
 * **First-In-First-Out (FIFO) Order Matching Engine:**
-* Matches partial and full position entries (`OPEN_LONG`, `OPEN_SHORT`, `BUY`) against closing fills (`CLOSE_LONG`, `CLOSE_SHORT`, `SELL`, `LIQUIDATION`).
-* Pro-rates entry and exit fees dynamically for partial position fills.
+  * Matches partial and full position entries (`OPEN_LONG`, `OPEN_SHORT`, `BUY`) against closing fills (`CLOSE_LONG`, `CLOSE_SHORT`, `SELL`, `LIQUIDATION`).
+  * Pro-rates entry and exit fees dynamically for partial position fills.
 
+* **🤖 Scikit-Learn ML Diagnostic Suite (New in v1.6):**
+  * **Feature Importance:** Uses a `RandomForestClassifier` with cross-validation to rank key trade drivers (duration, position sizing, entry session) impacting win/loss outcomes.
+  * **Trade Archetypes:** Unsupervised `KMeans` clustering groups execution behaviors into actionable profiles (Quick Scalps, Overleveraged Holds, Session Drift).
+  * **Behavioral Diagnostics:** Features chronological win probability heatmaps across 6 global trading sessions (Sydney, Tokyo, Hong Kong, Frankfurt, London, New York), position-size risk dispersion, and hold-time edge decay tracking.
 
 * **Exchange Fee & Settlement Precision:**
-* Handles exchanges where opening fees are settled against allocated margin/wallet balance and exit fees are billed separately upon close.
-* Preserves raw trade P&L without double-deducting execution commissions.
-
+  * Handles exchanges where opening fees are settled against allocated margin/wallet balance and exit fees are billed separately upon close.
+  * Preserves raw trade P&L without double-deducting execution commissions.
 
 * **Anomaly & Exception Detection:**
-* Tracks and isolates **Orphan Closes** (exits without preceding entry fills in the dataset window) and **Orphan Opens** (unclosed inventory remaining at dataset end).
-
+  * Tracks and isolates **Orphan Closes** (exits without preceding entry fills in the dataset window) and **Orphan Opens** (unclosed inventory remaining at dataset end).
 
 * **Interactive Visualization:**
-* Real-time equity curve tracking starting from segment initial capital.
-* Peak-to-trough drawdown visualization with account blowout detection (equity $\le \$0$).
-
+  * Real-time equity curve tracking starting from segment initial capital.
+  * Peak-to-trough drawdown visualization with account blowout detection ($\text{equity} \le \$0$).
 
 * **Flexible Multi-Segment Filtering:**
-* Symbol/pair filtering and time-window segmentations for targeted strategy backtesting analysis.
-
-
+  * Symbol/pair filtering and time-window segmentations for targeted strategy backtesting analysis.
 
 ---
 
 ## Interactive Analytics & Tab Breakdown
 
 ### 1. Executive Summary
-
 * **Realized P/L:** Cumulative net profit/loss across all closed trade fills.
 * **Account Equity:** Current total account equity ($\text{Starting Capital} + \text{Realized P/L}$).
 * **Win Rate & Sharpe Ratio:** Key risk-adjusted return and performance metrics.
@@ -45,12 +41,15 @@ An end-to-end, high-performance trading analytics platform built with Streamlit 
 * **Interactive Equity Curve & Drawdown Chart:** Built using Plotly for zooming and inspection.
 
 ### 2. Trade Analysis
-
 * **Trade Log Table:** Complete list of matched trades showing pair, direction, entry/exit price, position size, P&L, hold duration, and exit type (`TP`, `SL`, `Breakeven`, `Liquidation`).
 * **Performance Distribution:** Granular win/loss statistics, average hold times, and payout ratios.
 
-### 3. Anomalies & Data Diagnostics
+### 3. Machine Learning Engine
+* **🌲 Feature Importance:** Supervised classification model evaluating trade duration, sizing, session, and direction features to predict win/loss outcomes.
+* **🎯 Archetype Clustering:** Unsupervised cluster profiling categorizing trade patterns into behavioral buckets.
+* **📊 Edge Diagnostics:** Matrix analysis evaluating session win rates, edge decay over hold time, and risk-per-trade dispersion.
 
+### 4. Anomalies & Data Diagnostics
 * Inspects data gaps, missing execution logs, or partial queue mismatches to ensure absolute data integrity.
 
 ---
@@ -83,27 +82,15 @@ $$\text{Drawdown}_t = \frac{\text{Equity}_t - \text{Peak Equity}_t}{\text{Peak E
 
 ---
 
-## Installation & Deployment
+## Installation & Setup
 
-### Local Setup
-
-1. **Clone the Repository:**
 ```bash
-git clone https://github.com/pcm0nk/TradingDashboard.git
+# 1. Clone the repository
+git clone [https://github.com/pcm0nk/TradingDashboard.git](https://github.com/pcm0nk/TradingDashboard.git)
 cd TradingDashboard
 
-```
-
-
-2. **Install Dependencies:**
-```bash
+# 2. Install dependencies
 pip install -r requirements.txt
 
-```
-
-
-3. **Run the Streamlit Dashboard:**
-```bash
+# 3. Run the Streamlit dashboard
 streamlit run app.py
-
-```
