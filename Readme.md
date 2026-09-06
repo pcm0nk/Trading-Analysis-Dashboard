@@ -86,8 +86,8 @@ $$\text{Drawdown}_t = \frac{\text{Equity}_t - \text{Peak Equity}_t}{\text{Peak E
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/pcm0nk/TradingDashboard.git](https://github.com/pcm0nk/TradingDashboard.git)
-cd TradingDashboard
+git clone [https://github.com/pcm0nk/TradingDashboard.git](https://github.com/pcm0nk/Trading-Analysis-Dashboard.git)
+cd Trading-Analysis-Dashboard
 
 # 2. Install dependencies
 pip install -r requirements.txt
