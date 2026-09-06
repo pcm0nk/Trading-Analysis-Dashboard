@@ -68,7 +68,12 @@ def show_how_it_works_dialog():
                 ]
             }
             st.table(pd.DataFrame(schema_data))
-
+            st.warning(
+                "⚠️ **Important:** Column headers in your uploaded CSV/Excel file must match"
+                " the exact casing and spelling shown in the table above (e.g.,"
+                " `Filled time(UTC)`, `Futures`, `Realized PNL`). Column matching is"
+                " **case-sensitive**."
+            )
             st.markdown("---")
             
             # Inline Download Section
