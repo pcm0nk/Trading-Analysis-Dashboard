@@ -1,6 +1,6 @@
 # Algorithmic Trading Analytics Dashboard (FIFO Engine & Scikit-Learn ML Suite)
 
-An end-to-end, high-performance trading analytics platform built with Streamlit and Python. This system ingests raw trade fill logs from crypto and futures exchanges, executes precise **First-In-First-Out (FIFO)** order matching to reconstruct individual trade lifecycles, and provides institutional-grade performance analytics, interactive equity charts, drawdown modeling, and machine-learning-driven behavioral diagnostics.
+An end-to-end trading analytics platform built with Streamlit and Python. The system ingests raw trade fill logs from crypto and futures exchanges, executes First-In-First-Out (FIFO) order matching to reconstruct individual trade lifecycles, and provides performance analytics, interactive equity charts, drawdown modeling, and machine-learning-driven behavioral diagnostics.
 
 ---
 
@@ -10,7 +10,7 @@ An end-to-end, high-performance trading analytics platform built with Streamlit 
   * Matches partial and full position entries (`OPEN_LONG`, `OPEN_SHORT`, `BUY`) against closing fills (`CLOSE_LONG`, `CLOSE_SHORT`, `SELL`, `LIQUIDATION`).
   * Pro-rates entry and exit fees dynamically for partial position fills.
 
-* **🤖 Scikit-Learn ML Diagnostic Suite (New in v1.6):**
+* **🤖 Scikit-Learn ML Diagnostic Suite (v1.6+):**
   * **Feature Importance:** Uses a `RandomForestClassifier` with cross-validation to rank key trade drivers (duration, position sizing, entry session) impacting win/loss outcomes.
   * **Trade Archetypes:** Unsupervised `KMeans` clustering groups execution behaviors into actionable profiles (Quick Scalps, Overleveraged Holds, Session Drift).
   * **Behavioral Diagnostics:** Features chronological win probability heatmaps across 6 global trading sessions (Sydney, Tokyo, Hong Kong, Frankfurt, London, New York), position-size risk dispersion, and hold-time edge decay tracking.
