@@ -229,7 +229,6 @@ def show_how_it_works_dialog():
             )
 
         st.markdown("---")
-
     _render_dialog()
 
 
