@@ -65,5 +65,5 @@ def render_executive_summary_tab(trades_df, timeline_df, seg_start_cap, selected
         help="Total execution commission and fees paid when closing position exits."
     )
 
-    st.markdown(f"### Cumulative Equity & Drawdown — `{selected_seg_name}`")
+    st.markdown(f"#### Cumulative Equity & Drawdown — `{selected_seg_name}`")
     render_equity_and_drawdown_charts(timeline_df, seg_start_cap, selected_seg_name, has_blown, first_blowout_time)

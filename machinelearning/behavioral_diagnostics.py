@@ -93,8 +93,8 @@ def render_behavioral_diagnostics_tab(trades_df: pd.DataFrame):
         df["session"] = "Unknown Session"
 
     # ── ROW 1: Cross-Market & Session Win Probabilities (Full Width Matrix) ──
-    st.subheader(
-        "🌐 Win Probability Matrix by Market & Detailed Session",
+    st.markdown(
+        "#### 🌐 Win Probability Matrix by Market & Detailed Session",
         help=(
             "Cross-analyzes win rate and trade frequency across instruments and"
             " granular trading sessions (Sydney, Tokyo, Hong Kong, Frankfurt,"
@@ -178,8 +178,8 @@ def render_behavioral_diagnostics_tab(trades_df: pd.DataFrame):
     st.markdown("---")
 
     # ── ROW 2: Position Sizing vs Realized PnL ──────────────────────────────
-    st.subheader(
-        "⚖️ Position Sizing vs. Realized PnL",
+    st.markdown(
+        "#### ⚖️ Position Sizing vs. Realized PnL",
         help=(
             "Plots individual trade returns against the executed lot size or volume."
             " Isolates sizing outliers, reveals whether increased exposure yields higher"
@@ -208,8 +208,8 @@ def render_behavioral_diagnostics_tab(trades_df: pd.DataFrame):
     st.markdown("---")
 
     # ── ROW 3: Sizing Tier Efficiency Analysis ─────────────────────────────
-    st.subheader(
-        "📊 Sizing Tier Expectancy",
+    st.markdown(
+        "#### 📊 Sizing Tier Expectancy",
         help=(
             "Bins position sizes into volume buckets to compare average expected value ($)"
             " and win rate. Evaluates whether scaling up position size improves overall strategy"
@@ -258,8 +258,8 @@ def render_behavioral_diagnostics_tab(trades_df: pd.DataFrame):
 
     # ── ROW 4 & 5: Duration & Holding Edge Decay ────────────────────────────
     if "duration_min" in df.columns and df["duration_min"].notna().sum() >= 5:
-        st.subheader(
-            "⏳ Hold Time Win Rate Decay",
+        st.markdown(
+            "#### ⏳ Hold Time Win Rate Decay",
             help=(
                 "Tracks how win percentage changes as position duration increases."
                 " Identifies optimal holding windows and pinpoints where trade execution"
@@ -313,8 +313,8 @@ def render_behavioral_diagnostics_tab(trades_df: pd.DataFrame):
             st.markdown("---")
 
             # ROW 5 Chart: Duration Expectancy Bar Chart
-            st.subheader(
-                "⏳ Duration Expectancy Breakdown",
+            st.markdown(
+                "#### ⏳ Duration Expectancy Breakdown",
                 help=(
                     "Measures average dollar profitability per trade duration bucket."
                     " Reveals the point of diminishing returns where longer holding times"

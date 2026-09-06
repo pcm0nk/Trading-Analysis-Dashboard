@@ -197,8 +197,8 @@ def render_execution_clustering_tab(trades_df: pd.DataFrame):
     col_metric3.metric(label="Cluster Separation", value=quality_text)
 
     # Scatter Plot Visualization
-    st.subheader(
-        "📊 Execution Style Mapping",
+    st.markdown(
+        "####  📊 Execution Style Mapping",
         help=(
             "Visualizes trade behavior clusters in 3D feature space (Hold Duration vs."
             " Realized PnL scaled by position size). Groups executions using K-Means to"
@@ -225,8 +225,8 @@ def render_execution_clustering_tab(trades_df: pd.DataFrame):
     st.plotly_chart(fig, use_container_width=True)
 
     # Summary Breakdown Table
-    st.subheader(
-        "📋 Style Persona Breakdown",
+    st.markdown(
+        "#### 📋 Style Persona Breakdown",
         help=(
             "Aggregates core performance metrics across each discovered execution cluster."
             " Compares trade volume, hold duration, win rate, and total profitability per"

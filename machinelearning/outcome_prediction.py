@@ -53,8 +53,8 @@ def render_outcome_prediction_tab(trades_df: pd.DataFrame):
     X, y, results = data
 
     # ── High-Level Metric Cards ───────────────────────────────────────────────
-    st.subheader(
-        "📈 Predictive Performance Metrics",
+    st.markdown(
+        "#### 📈 Predictive Performance Metrics",
         help=(
             "Summary of cross-validated model precision, total feature parameters,"
             " evaluated trade sample count, and overall target class distribution."
@@ -93,8 +93,8 @@ def render_outcome_prediction_tab(trades_df: pd.DataFrame):
     st.markdown("---")
 
     # ── Performance Verdict Banner ──────────────────────────────────────────
-    st.subheader(
-        "⚖️ Model Performance Verdict",
+    st.markdown(
+        "#### ⚖️ Model Performance Verdict",
         help=(
             "Interprets overall cross-validation accuracy to categorize model"
             " predictive edge into Strong Pattern Signal, Moderate Edge, or High"

@@ -9,7 +9,7 @@ def compute_sharpe(pnl_series, rf=0.0, annualize=365):
     return float((pnl_series.mean() - rf) / pnl_series.std() * np.sqrt(annualize))
 
 def render_pair_performance_tab(trades_df, selected_seg_name):
-    st.markdown(f"### Instrument Performance Metrics — `{selected_seg_name}`")
+    st.markdown(f"#### Instrument Performance Metrics — `{selected_seg_name}`")
     pair_summary = []
 
     for pair, grp in trades_df.groupby('pair'):

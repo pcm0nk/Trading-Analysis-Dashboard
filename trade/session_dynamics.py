@@ -9,7 +9,7 @@ def compute_sharpe(pnl_series, rf=0.0, annualize=365):
     return float((pnl_series.mean() - rf) / pnl_series.std() * np.sqrt(annualize))
 
 def render_session_dynamics_tab(trades_df, selected_seg_name):
-    st.markdown(f"### Session Breakdown — `{selected_seg_name}`")
+    st.markdown(f"#### Session Breakdown — `{selected_seg_name}`")
     sessions_dict = {
         'Sydney': (21, 6), 'Tokyo': (0, 9), 'Hong Kong': (1, 10),
         'London': (8, 16), 'New York': (13, 22)

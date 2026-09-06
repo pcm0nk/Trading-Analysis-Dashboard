@@ -9,7 +9,7 @@ from machinelearning.outcome_prediction import render_outcome_prediction_tab
 
 def run_ml_analysis_phase(trades_df: pd.DataFrame, ledger_df: pd.DataFrame):
     """Executes Section 3: Machine Learning Diagnostic Engine."""
-    st.markdown("## 🤖 Machine Learning Diagnostic Engine")
+    st.markdown("<h3> 🤖 Machine Learning Diagnostic Engine </h3>", unsafe_allow_html=True)
 
     ml_tab1, ml_tab2, ml_tab3 = st.tabs([
         "🎯 Outcome Prediction & Drivers",

@@ -20,8 +20,8 @@ def render_feature_drivers_tab(trades_df: pd.DataFrame):
     top_features = results["feature_importances"].head(10)
 
     # ── Feature Weight Chart ──────────────────────────────────────────────────
-    st.subheader(
-        "📊 Predictive Feature Weight Distribution",
+    st.markdown(
+        "#### 📊 Predictive Feature Weight Distribution",
         help=(
             "Displays the top 10 most influential trade features based on feature"
             " importance scores from the supervised model. Highlights which attributes"
@@ -33,8 +33,8 @@ def render_feature_drivers_tab(trades_df: pd.DataFrame):
     st.markdown("---")
 
     # ── Detailed Driver Ranking ───────────────────────────────────────────────
-    st.subheader(
-        "💡 Top Dominant Drivers Breakdown",
+    st.markdown(
+        "#### 💡 Top Dominant Drivers Breakdown",
         help=(
             "Breaks down the top predictive factors in rank order with their percentage"
             " weight contributions to help identify primary operational edge drivers."
