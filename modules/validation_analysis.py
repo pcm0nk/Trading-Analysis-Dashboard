@@ -108,8 +108,34 @@ def run_validation_phase(uploaded_file):
 
     # Display Anomalies Table if present
     if not anomalies_df.empty:
-        st.markdown("#### FIFO Audit Inventory & Execution Anomalies")
-        st.dataframe(anomalies_df, use_container_width=True)
+     st.markdown(
+        "#### FIFO Audit Inventory & Execution Anomalies",
+        help="""If the raw log contains missing data or active positions,
+        this table appears. Three distinct anomaly types exist:
+
+        1. Orphan Open (Unclosed Inventory)
+        • What it is: Position inventory opened but not closed
+        before the log window ended.
+        • Why it happens: Active open trade, or file export
+        range ended while position was open.
+        • Detail: 'Unmatched position inventory remaining'
+
+        2. Orphan Close (Missing Entry Error)
+        • What it is: Closing/liquidation order executed without
+        a prior opening trade in queue.
+        • Why it happens: Trade was opened before the start
+        date of the exported date range.
+        • Detail: 'Missing prior opening trade entry'
+
+        3. Orphan Close (Partial) (Queue Exhaustion Error)
+        • What it is: Close fill partially matched, but entry queue
+        ran out before full exit quantity was resolved.
+        • Why it happens: Open quantity on record was smaller
+        than the exit quantity executed.
+        • Detail: 'Exhausted open order queue before matching'"""
+     )
+
+    st.dataframe(anomalies_df, use_container_width=True)
 
     # Metadata pipeline handoff to Phase 2 (Trade Analysis)
     all_sanity_passed = all(res['Passed'] for res in sanity_results.values())

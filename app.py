@@ -83,7 +83,7 @@ else:
     # Top-Level Navigation Tabs (Main Menu)
     menu_tab1, menu_tab2, menu_tab3 = st.tabs([
         "🛡️ Section 1: Validation Analysis",
-        "📈 Section 2: Trading Analysis Engine",
+        "📈 Section 2: Trading Analytics Engine",
         "🤖 Section 3: Machine Learning Engine",
     ])
 
