@@ -44,7 +44,7 @@ def run_validation_phase(uploaded_file):
 
     st.dataframe(pd.DataFrame(sanity_table), use_container_width=True)
 
-    # 3. Pass Clean Fills to FIFO Engine (Receives raw fragments, consolidated positions, anomalies)
+    #3. Pass Clean Fills to FIFO Engine (Receives raw fragments, consolidated positions, anomalies)
     st.markdown(
     "### 2. FIFO Order Reconstruction & Position Audit",
     help=(
