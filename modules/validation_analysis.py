@@ -45,7 +45,17 @@ def run_validation_phase(uploaded_file):
     st.dataframe(pd.DataFrame(sanity_table), use_container_width=True)
 
     # 3. Pass Clean Fills to FIFO Engine (Receives raw fragments, consolidated positions, anomalies)
-    st.markdown("### 2. FIFO Order Reconstruction & Position Audit")
+    st.markdown(
+    "### 2. FIFO Order Reconstruction & Position Audit",
+    help=(
+        "How It Works:\n"
+        "1. Queue Management: The engine iterates through raw fills grouped by symbol/pair. Opening fills enter an open_queue.\n\n"
+        "2. FIFO Matching: When a closing fill occurs, the algorithm matches it against the oldest available entry in the queue (open_queue[0]).\n\n"
+        "3. Proportional Fee & PnL Allocation: If a close partial-fills an entry, entry fees, exit fees, and realized PnL are allocated proportionally based on matched volume.\n\n"
+        "4. Exit Outcome Classification: Each sub-trade is tagged as a Take Profit (TP), Stop Loss (SL), Breakeven (BE), or Liquidation.\n\n"
+        "5. Position Consolidation: Next, our consolidation function aggregates contiguous partial fills in the same direction into a single row. Entry and exit prices are recalculated using volume-weighted averages, fees are summed, and total holding duration is calculated from initial entry to final exit flat."
+    )
+)
     clean_trades_df, consolidated_trades_df, anomalies_df = process_fifo_trades(df_sorted)
 
     # Separate FIFO Orphans
@@ -54,11 +64,36 @@ def run_validation_phase(uploaded_file):
 
     # Metrics Summary Bar
     mcol1, mcol2, mcol3, mcol4, mcol5 = st.columns(5)
-    mcol1.metric("Raw Fills Ingested", f"{len(df_sorted):,}")
-    mcol2.metric("Matched Execution Fragments", f"{len(clean_trades_df):,}")
-    mcol3.metric("Consolidated Positions", f"{len(consolidated_trades_df):,}")
-    mcol4.metric("Open Position Inventory", f"{len(orphan_opens):,}")
-    mcol5.metric("Unmatched Close Errors", f"{len(orphan_closes):,}", delta_color="inverse")
+    mcol1.metric(
+        label="Raw Fills Ingested",
+        value=f"{len(df_sorted):,}",
+        help="The total number of execution rows uploaded from the raw exchange file."
+    )
+
+    mcol2.metric(
+        label="Matched Execution Fragments",
+        value=f"{len(clean_trades_df):,}",
+        help="The number of sub-fill execution pieces that were successfully matched on a First-In-First-Out basis."
+    )
+
+    mcol3.metric(
+        label="Consolidated Positions",
+        value=f"{len(consolidated_trades_df):,}",
+        help="The number of completed full trade lifecycles created after merging scaled entries and partial exits."
+    )
+
+    mcol4.metric(
+        label="Open Position Inventory",
+        value=f"{len(orphan_opens):,}",
+        help="Count of unclosed position fills remaining open at the end of the dataset."
+    )
+
+    mcol5.metric(
+        label="Unmatched Close Errors",
+        value=f"{len(orphan_closes):,}",
+        delta_color="inverse",
+        help="Severe anomalies where a closing fill occurred without a prior open order on record."
+    )
 
     # Download Button for Consolidated Positions CSV
     if not consolidated_trades_df.empty:
