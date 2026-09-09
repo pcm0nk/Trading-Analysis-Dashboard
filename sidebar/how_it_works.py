@@ -236,7 +236,7 @@ def render_how_it_works_button():
     """
     Renders the sidebar button to trigger the walkthrough modal.
     """
-    if st.sidebar.button("📖 How It Works", use_container_width=True):
+    if st.sidebar.button("📖 How it Works (with videos)", use_container_width=True):
         st.session_state.show_walkthrough_modal = True
 
     if st.session_state.get("show_walkthrough_modal", False):
