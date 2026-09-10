@@ -13,9 +13,19 @@ def render_sidebar():
     and capital/segment controls.
     """
     st.sidebar.title("⚡ Control Panel")
+
+    # ── 0. TRADING JOURNAL LINK BUTTON ──────────────────────────────────────────
+    st.sidebar.link_button(
+        label="📓 Access Trading Journal App",
+        url="https://pcmonk-tradingjournal.ai.studio/",  # Replace with your actual journal URL
+        use_container_width=True,
+        type="secondary",
+        help="Click to open your trading journal in a new tab.",
+    )
     
-    # ── 0. WALKTHROUGH & DOCUMENTATION TRIGGER ──────────────────────────────────
+    # ── 0.1 WALKTHROUGH & DOCUMENTATION TRIGGER ──────────────────────────────────
     render_how_it_works_button()
+
     st.sidebar.markdown("---")
 
     # ── 1. SAMPLE DATA SELECTION ────────────────────────────────────────────────

@@ -65,3 +65,4 @@ def render_how_it_works_button():
     if st.session_state.get("show_walkthrough_modal", False):
         st.session_state.show_walkthrough_modal = False
         show_how_it_works_dialog()
+        
