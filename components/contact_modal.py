@@ -2,7 +2,7 @@ import streamlit as st
 
 @st.dialog("📩 Contact & Support")
 def show_contact_modal():
-    tab_contact, tab_donate = st.tabs(["💬 Direct Contact", "☕ Donate & Support"])
+    tab_contact, tab_donate = st.tabs(["💬 Direct Contact", "☕ Support"])
 
     # ── TAB 1: DIRECT CONTACT & COMMUNITY ────────────────────────────────────
     with tab_contact:
@@ -32,25 +32,25 @@ def show_contact_modal():
  
     # ── TAB 2: DONATION & SUPPORT ─────────────────────────────────────────────
     with tab_donate:
-        st.markdown(
-            "Donations help keep the project maintained and support adding new analytical features!"
-        )
-        st.markdown("---")
+      #  st.markdown(
+     #       "Donations help keep the project maintained and support adding new analytical features!"
+      #  )
+      #  st.markdown("---")
 
         # Vertical Row 1: Bitcoin
-        st.markdown("🪙 **Bitcoin (BTC)**")
-        st.code("bc1q3r4405f876lgaz8wnx3ddc2stpuem03mkzyevw", language="text")
-        st.markdown("---")
+      #  st.markdown("🪙 **Bitcoin (BTC)**")
+      #  st.code("bc1q3r4405f876lgaz8wnx3ddc2stpuem03mkzyevw", language="text")
+      #  st.markdown("---")
 
         # Vertical Row 2: USDC (BSC - BEP20)
-        st.markdown("💵 **USDC (BSC - BEP20)**")
-        st.code("0x923eD04b7274c7db95566BeE92E42B67976c403A", language="text")
-        st.markdown("---")
+      #  st.markdown("💵 **USDC (BSC - BEP20)**")
+      #  st.code("0x923eD04b7274c7db95566BeE92E42B67976c403A", language="text")
+      #  st.markdown("---")
 
         # Vertical Row 3: USDT (BSC - BEP20)
-        st.markdown("💵 **USDT (BSC - BEP20)**")
-        st.code("0x923eD04b7274c7db95566BeE92E42B67976c403A", language="text")
-        st.markdown("---")
+     #   st.markdown("💵 **USDT (BSC - BEP20)**")
+     #   st.code("0x923eD04b7274c7db95566BeE92E42B67976c403A", language="text")
+    #    st.markdown("---")
 
         # Vertical Row 4: KCEX Referral
         st.markdown("📈 **Trade on KCEX**")
