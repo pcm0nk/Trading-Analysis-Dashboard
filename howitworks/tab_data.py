@@ -15,7 +15,7 @@ def render_tab_data():
 
     st.markdown(
         "The system features an **Automated Schema Engine (`RapidFuzz`)** that automatically detects exchange export formats "
-        "(e.g., WEX, Binance, Bybit, OKX) and maps column headers to our internal schema. "
+        "(e.g., WEEX, Binance, Bybit, OKX) and maps column headers to our internal schema. "
         "You can upload custom CSV/Excel files (`.csv`, `.xlsx`) without manually reformatting your columns."
     )
 
