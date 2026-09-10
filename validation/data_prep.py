@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from validation.automapper import map_columns_to_standard, detect_exchange_signature
 
 
 def clean_and_prepare_data(uploaded_file) -> pd.DataFrame:
@@ -23,29 +24,9 @@ def clean_and_prepare_data(uploaded_file) -> pd.DataFrame:
     if df.empty:
         return pd.DataFrame()
 
-    # 2. Column Mapping
-    col_map = {
-        'Futures': 'pair',
-        'Symbol': 'pair',
-        'Instrument': 'pair',
-        'Direction': 'direction',
-        'Side': 'direction',
-        'Filled Price': 'price',
-        'Price': 'price',
-        'Filled Quantity': 'quantity',
-        'Amount': 'quantity',
-        'Qty': 'quantity',
-        'Realized PNL': 'pnl',
-        'PNL': 'pnl',
-        'fees': 'fees',
-        'Fee': 'fees',
-        'Filled time(UTC)': 'fill_time',
-        'Time': 'fill_time',
-        'Date': 'fill_time'
-    }
-    
-    rename_dict = {orig: col_map[orig] for orig in col_map if orig in df.columns}
-    df = df.rename(columns=rename_dict).copy()
+    # 2. Detect Exchange Signature & Run Column AutoMapper
+    exchange_signature = detect_exchange_signature(df)
+    df, mapping_report, missing_cols = map_columns_to_standard(df)
 
     # 3. Clean Numeric Formatting
     for col in ['quantity', 'price', 'pnl', 'fees']:
