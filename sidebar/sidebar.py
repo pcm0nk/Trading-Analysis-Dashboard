@@ -17,7 +17,7 @@ def render_sidebar():
     # ── 0. TRADING JOURNAL LINK BUTTON ──────────────────────────────────────────
     st.sidebar.link_button(
         label="📓 Access Trading Journal App",
-        url="https://pcmonk-tradingjournal.ai.studio/",  # Replace with your actual journal URL
+        url="https://pcmonk-tradingjournal.vercel.app/",  # Replace with your actual journal URL
         use_container_width=True,
         type="secondary",
         help="Click to open your trading journal(beta) in a new tab.",
