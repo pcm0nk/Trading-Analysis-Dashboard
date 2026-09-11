@@ -20,7 +20,7 @@ def render_sidebar():
         url="https://pcmonk-tradingjournal.vercel.app/",  # Replace with your actual journal URL
         use_container_width=True,
         type="secondary",
-        help="Click to open your trading journal(beta) in a new tab.",
+        help="Click to open your trading journal in a new tab.",
     )
     
     # ── 0.1 WALKTHROUGH & DOCUMENTATION TRIGGER ──────────────────────────────────
